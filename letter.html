@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gentle things last longer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&family=Courier+New&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌼</text></svg>">
+</head>
+<body>
+<main>
+       <section id="letter-section">
+    
+    <div class="paper-letter">
+        
+        <div class="polaroid-wrapper">
+            <img src="jiji.png" alt="Jiji" class="cat-photo">
+        </div>
+
+        <div class="letter-content">
+            
+            <div class="letter-header">
+                <h3>The Gatekeeper (The Bat Cat).</h3>
+                <p>If you're reading this, you knew the password.</p>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="actual-text">
+                <p class="greeting">Dear Ashley,</p>
+
+                <p>
+                    This is where you write your heart out. Because of the CSS I added, this text 
+                    will look like it was printed on expensive paper.
+                </p>
+
+                <p>
+                    You can add as many paragraphs as you want. The paper will automatically 
+                    grow longer to fit your words.
+                </p>
+
+                <p>
+                    I hope you liked the timeline and the gallery. It's been 10 years, 
+                    and I still remember the small details.
+                </p>
+
+                <br> <p class="closing">Always,</p>
+                <span class="signature">Roniel</span>
+                
+    
+    <div class="return-container">
+        <a href="index.html" class="return-btn">← Return to Timeline</a>
+    </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+    </div>
+</main>
+<div class="music-control">
+    <audio id="bg-music" loop>
+        <source src="showmehow.mp3" type="audio/mpeg">
+    </audio>
+    
+    <button id="music-toggle" class="music-btn">
+        <span class="icon">♪</span>
+        <span class="text">Play Music</span>
+    </button>
+</div>
+
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <div class="modal-content" id="modal-images"></div>
+</div>
+
+<script>
+    const music = document.getElementById('bg-music');
+    const toggleBtn = document.getElementById('music-toggle');
+    const btnText = toggleBtn.querySelector('.text');
+    
+    music.volume = 0.3;
+
+    toggleBtn.addEventListener('click', () => {
+        if (music.paused) {
+            music.play();
+            btnText.textContent = "Pause Music";
+            toggleBtn.classList.add('playing');
+        } else {
+            music.pause();
+            btnText.textContent = "Play Music";
+            toggleBtn.classList.remove('playing');
+        }
+    });
+
+    // Modal Logic
+    const modal = document.getElementById('imageModal');
+    const modalImages = document.getElementById('modal-images');
+    const closeModal = document.querySelector('.close-modal');
+
+    function openModal(element) {
+        modal.style.display = "block";
+        modalImages.innerHTML = ''; // Clear previous images
+        
+        // Get images from the clicked album
+        const images = element.querySelectorAll('.album-photo');
+        images.forEach(img => {
+            const newImg = document.createElement('img');
+            newImg.src = img.src;
+            modalImages.appendChild(newImg);
+        });
+    }
+
+    closeModal.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

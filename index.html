@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--  ANG LAMAN NG HEAD KO AY IKAW HAHAHAHAHAHAHA Just in case lang marunong ka magcheck ng code Ashley-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gentle things last longer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&family=Courier+New&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌼</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌼</text></svg>">
 </head>
 <body>
 <main>
@@ -102,9 +101,6 @@
     </div>
 </section>
 
-
-
-
         <section id="playlist-section">
             <div class="playlist-container">
                 <div class="playlist-header">
@@ -114,6 +110,38 @@
                 <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7zmwPrkfNt4P4cdi0K9jlj?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </section>
+
+         <section id="gallery-section">
+    <div class="gallery-container">
+        
+        <div class="gallery-header">
+            <h3>Games we played together</h3>
+            <p>and hopefully more to come.</p>
+        </div>
+
+        <div class="photo-grid">
+            
+            <div class="grid-item album-wrapper" onclick="openModal(this)">
+                <div class="mini-album">
+                    <img class="album-photo" src="peak/peak1.png">
+                    <img class="album-photo" src="peak/peak2.png">
+                </div>
+                <div class="album-label">Peak(2 Photos)</div>
+            </div>
+
+             <div class="grid-item album-wrapper" onclick="openModal(this)">
+                <div class="mini-album">
+                    <img class="album-photo" src="roblox/roblox1.png">
+                    <img class="album-photo" src="roblox/art1.png">
+                    <img class="album-photo" src="roblox/art2.png">
+                    <img class="album-photo" src="roblox/art3.png">
+                    <img class="album-photo" src="roblox/art4.png">
+                </div>
+                <div class="album-label">Roblox(5 Photos)</div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <section id="gallery-section">
     <div class="gallery-container">
@@ -132,17 +160,7 @@
                     <div class="album-photo placeholder"><span>3/5</span></div>
                     <div class="album-photo placeholder"><span>4/5</span></div>
                     <div class="album-photo placeholder"><span>5/5</span></div>
-
-
-                   <!---- REPLACE THE CODE AT THE TOP WITH ACTUAL PHOTOS WHEN WE MEET AGAIN
-                    <div class="mini-album">
-                    <img class="album-photo" src="pic1.jpg">
-                    <img class="album-photo" src="pic2.jpg">
-                    <img class="album-photo" src="pic3.jpg">
-                     </div> -->
-
                 </div>
-                <!--<div class="album-label">Feb 2026 (5 Photos)</div> -->
             </div>
 
             <div class="grid-item album-wrapper">
@@ -161,9 +179,6 @@
                     <div class="album-photo placeholder"><span>you.</span></div>
                 </div>
             </div>
-
-            
-
         </div>
     </div>
 </section>
@@ -172,8 +187,19 @@
     As long as it takes,<Br>
     <span class="signature">Roniel</span>
 </h2>
-<!-- pero kung di ako pipiliin mo, kita kits nalang sa kabilang buhay sana kambing ka dun -->
     </div>
+
+    <div class="jiji-stamp" onclick="askPassword()">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C8.13 2 5 5.13 5 9C5 11.38 6.19 13.47 8 14.74V17C8 17.55 8.45 18 9 18H15C15.55 18 16 17.55 16 17V14.74C17.81 13.47 19 11.38 19 9C19 5.13 15.87 2 12 2ZM9 8C9.55 8 10 8.45 10 9C10 9.55 9.55 10 9 10C8.45 10 8 9.55 8 9C8 8.45 8.45 8 9 8ZM15 9C15 9.55 14.55 10 14 10C13.45 10 13 9.55 13 9C13 8.45 13.45 8 14 8C14.55 8 15 8.45 15 9Z" fill="#2C2C2C"/>
+        <path d="M6 21H18" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <p>Executive Producer: <strong>Jiji</strong></p>
+    <p style="font-size: 0.6rem; margin-top:0;">(Click me)</p>
+</div>
+
+
+
 </main>
 <div class="music-control">
     <audio id="bg-music" loop>
@@ -186,12 +212,16 @@
     </button>
 </div>
 
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <div class="modal-content" id="modal-images"></div>
+</div>
+
 <script>
     const music = document.getElementById('bg-music');
     const toggleBtn = document.getElementById('music-toggle');
     const btnText = toggleBtn.querySelector('.text');
 
-    // Set volume to 50% so it's not too loud
     music.volume = 0.3;
 
     toggleBtn.addEventListener('click', () => {
@@ -205,6 +235,50 @@
             toggleBtn.classList.remove('playing');
         }
     });
+
+    // Modal Logic
+    const modal = document.getElementById('imageModal');
+    const modalImages = document.getElementById('modal-images');
+    const closeModal = document.querySelector('.close-modal');
+
+    function openModal(element) {
+        modal.style.display = "block";
+        modalImages.innerHTML = ''; // Clear previous images
+        
+        // Get images from the clicked album
+        const images = element.querySelectorAll('.album-photo');
+        images.forEach(img => {
+            const newImg = document.createElement('img');
+            newImg.src = img.src;
+            modalImages.appendChild(newImg);
+        });
+    }
+
+    closeModal.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    function askPassword() {
+        // 1. Ask for the password
+        var password = prompt("Jiji requires the password to enter: (HINT: your first ign)");
+        
+        // 2. Convert to lowercase so 'Password' and 'password' both work
+        if (password && password.toLowerCase() === "animeash_18") { 
+            
+            // 3. If correct, go to the letter
+            window.location.href = "letter.html"; 
+            
+        } else if (password) {
+            
+            // 4. If wrong
+            alert("Jiji says: 'Meow!' (Access Denied. Try again.)");
+        }
+    }
 </script>
 </body>
 </html>
