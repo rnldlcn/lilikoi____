@@ -75,7 +75,7 @@ h1, h2 {
 }
 
 .date:hover::after {
-    content: ": The first of many. (Hopefully)";
+    content: " And counting.";
     color: var(--accent-color);
 }
 
@@ -746,4 +746,14 @@ h2 {
     color: var(--accent-color);
     letter-spacing: 4px; 
     border-bottom: 1px solid var(--accent-color);
+}
+
+/* ARCHIVE MODE TWEAKS */
+body {
+    --text-color: #222; /* Slightly darker for better reading */
+}
+
+.hero p {
+    font-style: italic;
+    color: #555;
 }
