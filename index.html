@@ -13,7 +13,7 @@
 <main>
     <div class="container">
         <div class="hero">
-            <div class="date">Since 2016.</div>
+            <div class="date"onclick="askSecondPassword()" style="cursor: pointer;" title="Click me">Since 2016.</div>
             <h1>A Decade.</h1>
             <p>A digital archive of our shared history.</p>
             <p>rnldlcn - lilikoi____</p>
@@ -250,7 +250,7 @@
 
     function openModal(element) {
         modal.style.display = "block";
-        modalImages.innerHTML = ''; // Clear previous images
+        modalImages.innerHTML = ''; 
         
         // Get images from the clicked album
         const images = element.querySelectorAll('.album-photo');
@@ -271,19 +271,32 @@
         }
     }
     function askPassword() {
-        // 1. Ask for the password
         var password = prompt("Jiji requires the password to enter: (HINT: Roniel's nickname)");
         
-        // 2. Convert to lowercase so 'Password' and 'password' both work
+        
         if (password && password.toLowerCase() === "red") { 
             
-            // 3. If correct, go to the letter
             window.location.href = "letterval2026.html"; 
             
         } else if (password) {
             
-            // 4. If wrong
             alert("Jiji says: 'Meow!' (Access Denied. Try again.)");
+        }
+    }
+    function askSecondPassword() {
+       
+        var password = prompt("Archive Access: Enter the passcode: (HINT:fate)");
+        
+        
+        if (password && password.toLowerCase() === "tadhana") { 
+            
+            
+            window.location.href = "lettervalentines2026.html"; 
+            
+        } else if (password) {
+            
+           
+            alert("Incorrect passcode. The archive remains locked.");
         }
     }
 </script>
