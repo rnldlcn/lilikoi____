@@ -757,3 +757,65 @@ body {
     font-style: italic;
     color: #555;
 }
+/* === THE FLORAL ARCHIVE === */
+#floral-archive {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.archive-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #2C2C2C;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.archive-header p {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* Flexbox Grid for the photos */
+.floral-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.photo-frame {
+    background: #FDFCF8;
+    padding: 15px 15px 25px 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    border: 1px solid #E5E0D8;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+
+.photo-frame:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(10%) contrast(110%); 
+}
+
+.photo-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #444;
+    font-style: italic;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
